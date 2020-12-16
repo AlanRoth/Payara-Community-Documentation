@@ -7,7 +7,7 @@ pipeline {
         stage('Publish') {
             steps {
                 sshagent (credentials: ['AWS-payara-docs-dev']) {
-                    sh 'ssh ec2-user@ec2-3-8-94-85.eu-west-2.compute.amazonaws.com /opt/payara-docs/update-docs.sh'
+                    sh "ssh ec2-user@ec2-3-8-94-85.eu-west-2.compute.amazonaws.com 'cd /opt/payara-docs/; ./update-docs.sh'"
                 }
             }
         }
